@@ -1,0 +1,22 @@
+.footer {
+  padding: 60px 0;
+  &__content {
+    &-text {
+      font-family: "PN-light", serif;
+      font-size: 1.1rem;
+      line-height: 36px;
+      color: #a7acbc;
+    }
+    &-link {
+      font-family: "PN-bold", serif;
+      color: #a7acbc;
+      &:hover {
+        background: -moz-linear-gradient(16deg, #49007c 0%, #e70088 100%);
+        background: -webkit-linear-gradient(16deg, #49007c 0%, #e70088 100%);
+        background: -ms-linear-gradient(16deg, #49007c 0%, #e70088 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+}
