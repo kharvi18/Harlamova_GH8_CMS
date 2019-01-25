@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .clearfix:after {
   content: ".";
   display: block;
@@ -85,3 +86,92 @@ li:hover > {
 }
 
 
+=======
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+body {
+  color: #000;
+  font-size: 20px;
+  line-height: 1.4;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+#container {
+  width: 960px;
+  margin: auto;
+}
+
+body {
+  height: 1500px;
+  background: #2bd1b5 linear-gradient(#2bd1b5, white);
+}
+
+div, h1 {
+  margin-left: 150px;
+}
+
+.strike {
+  color: gray;
+}
+
+ol {
+  height: 110%;
+  width: 370px;
+  background: #1e927e;
+  align-content: center;
+}
+
+button, #submit {
+  width: 120px;
+  height: 30px;
+  font-size: 15px;
+  background: #2e353b;
+  border: none;
+  color: #FFF;
+}
+
+li {
+  padding: 10px 0 0;
+  height: 40px;
+  width: 300px;
+  &:nth-of-type(odd), &:nth-of-type(even) {
+    background: #1e927e;
+  }
+}
+
+.editButton, .deleteButton {
+  width: 70px;
+  margin: 10px;
+  height: 20px;
+  float: right;
+  display: none;
+}
+
+li:hover > {
+  .editButton, .deleteButton {
+    display: block;
+  }
+}
+
+.field {
+  height: 20px;
+  width: 50px;
+}
+
+.view {
+  display: none;
+}
+
+
+>>>>>>> origin/master

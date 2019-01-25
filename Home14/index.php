@@ -1,14 +1,10 @@
+<?php $data = require 'data.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css"/>
-    <script src="https://use.fontawesome.com/c015006049.js"></script>
     <link rel="stylesheet" href="src/fonts/fonts.css">
     <link rel="stylesheet" href="assets/css/main.css">
 
@@ -358,8 +354,6 @@
     </div>
 </footer>
 
-<!-- bootstrap -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!-- slider -->
 <script type="text/javascript" src="src/js/slick.min.js"></script>
 <script src="src/js/main.js"></script>
