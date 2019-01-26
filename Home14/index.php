@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="src/fonts/fonts.css">
     <link rel="stylesheet" href="assets/css/main.css">
 
-    <title>Interactive Agency</title>
+    <title> <?php echo $data['pageTitle']; ?></title>
 </head>
 
 <body data-spy="scroll" data-target="#additionalNav" data-offset="100">
@@ -20,7 +20,8 @@
                 <div class="col">
                     <nav class="navbar navbar-expand-lg navbar-light p-0 justify-content-between">
                         <a href="#home" class="header__logo">
-                            <img class="header__logo-a" src="src/img/main/Logo.png" alt="Interactive_Agency">
+                            <img class="header__logo-a" src="<?php echo $data['siteLogo']; ?>"
+                                 alt="<?php echo $data['altLogo']; ?>">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav"
                                 aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,20 +30,12 @@
 
                         <div class="collapse navbar-collapse header__menu justify-content-end" id="mainNav">
                             <ul class="list-inline list-unstyled navbar-nav nav nav-tabs border-0">
-                                <li class="list-inline-item mr-0"><a href="#home"
-                                                                     class="header__menu-item nav-link active">Home</a>
-                                </li>
-                                <li class="list-inline-item mr-0"><a href="#offer" class="header__menu-item nav-link">Offer</a>
-                                </li>
-                                <li class="list-inline-item mr-0"><a href="#about-us"
-                                                                     class="header__menu-item nav-link">About Us</a>
-                                </li>
-                                <li class="list-inline-item mr-0"><a href="#portfolio"
-                                                                     class="header__menu-item nav-link">Portfolio</a>
-                                </li>
-                                <li class="list-inline-item mr-0"><a href="#contact"
-                                                                     class="header__menu-item mr-lg-0 nav-link">Contact</a>
-                                </li>
+                                <?php foreach ($data['mainMenu'] as $menuItem) { ?>
+                                    <li class="list-inline-item mr-0"><a href="<?php echo $menuItem['url']; ?>"
+                                                                         class="header__menu-item nav-link active"><?php echo $menuItem['title']; ?></a>
+                                    </li>
+                                <?php } ?>
+
                             </ul>
                         </div>
                     </nav>
@@ -56,7 +49,8 @@
                 <div class="col">
                     <nav class="navbar navbar-expand-lg navbar-light p-0 justify-content-between">
                         <a href="#home" class="header__logo">
-                            <img class="header__logo-a" src="src/img/main/Logo.png" alt="Interactive_Agency">
+                            <img class="header__logo-a" src="<?php echo $data['siteLogo']; ?>"
+                                 alt="<?php echo $data['altLogo']; ?>">
                         </a>
 
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#additionalNav"
@@ -66,21 +60,11 @@
 
                         <div class="collapse navbar-collapse header__menu justify-content-end" id="additionalNav">
                             <ul class="list-inline list-unstyled navbar-nav nav nav-tabs border-0" role="tablist">
-                                <li class="list-inline-item mr-0 nav-item"><a href="#home"
-                                                                              class="header__menu-item nav-link">Home</a>
-                                </li>
-                                <li class="list-inline-item mr-0 nav-item"><a href="#offer"
-                                                                              class="header__menu-item nav-link">Offer</a>
-                                </li>
-                                <li class="list-inline-item mr-0 nav-item"><a href="#portfolio"
-                                                                              class="header__menu-item nav-link">Portfolio</a>
-                                </li>
-                                <li class="list-inline-item mr-0 nav-item"><a href="#about-us"
-                                                                              class="header__menu-item nav-link">About
-                                    Us</a></li>
-                                <li class="list-inline-item mr-0 nav-item"><a href="#contact"
-                                                                              class="header__menu-item mr-lg-0 nav-link">Contact</a>
-                                </li>
+                                <?php foreach ($data['mainMenu'] as $menuItem) { ?>
+                                    <li class="list-inline-item mr-0 nav-item"><a href="<?php echo $menuItem['url']; ?>"
+                                                                                  class="header__menu-item nav-link"><?php echo $menuItem['title']; ?></a>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </div>
                     </nav>
@@ -92,12 +76,13 @@
         <div class="row justify-content-center text-center">
             <div class="col">
                 <div class="main__content">
-                    <h1 class="main__content-title">Lorem ipsum dolor sit amet</h1>
-                    <p class="main__content-text">Nunc vel nibh tempor, pharetra lectus congue, luctus orci.</p>
+                    <h1 class="main__content-title"><?php echo $data['contentTitle']; ?></h1>
+                    <p class="main__content-text"><?php echo $data['contentText']; ?></p>
                     <div>
-                        <a href="#" class="main__content-button button button-pink d-inline-block">Ask for price</a>
+                        <a href="<?php echo $data['buttonUrl']; ?>"
+                           class="main__content-button button button-pink d-inline-block"><?php echo $data['buttonTitle']; ?></a>
                     </div>
-                    <a href="#offer" id="mouse"
+                    <a href="<?php echo $data['scrollDown']['url']; ?>" id="mouse"
                        class="main__content-scroll-down scroll-down d-flex flex-column align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25px"
                              height="43px">
@@ -105,9 +90,10 @@
                                   fill="rgb(255, 255, 255)"
                                   d="M12.500,43.000 C5.596,43.000 -0.000,37.404 -0.000,30.500 L-0.000,12.500 C-0.000,5.597 5.596,0.000 12.500,0.000 C19.404,0.000 25.000,5.597 25.000,12.500 L25.000,30.500 C25.000,37.404 19.404,43.000 12.500,43.000 ZM14.375,9.521 C14.375,8.673 13.363,7.985 12.500,7.985 C11.637,7.985 10.625,8.673 10.625,9.521 L10.625,13.207 C10.625,14.055 11.637,14.743 12.500,14.743 C13.363,14.743 14.375,14.055 14.375,13.207 L14.375,9.521 Z"></path>
                         </svg>
-                        scroll down</a><a href="#offer"
-                                          class="main__content-scroll-down scroll-down d-flex flex-column align-items-center">
-                </a>
+                        <?php echo $data['scrollDown']['title']; ?></a><a
+                            href="<?php echo $data['scrollDown']['url']; ?>"
+                            class="main__content-scroll-down scroll-down d-flex flex-column align-items-center">
+                    </a>
                 </div>
             </div>
         </div>
@@ -116,32 +102,29 @@
 <section id="offer" class="code">
     <div class="container">
         <div class="row justify-content-between">
-            <div class="col-md-6 col-lg-5">
-                <div class="code__part">
-                    <h2 class="code__part-title">Best<span>Design</span></h2>
-                    <p class="code__part-text">
-                        Aliquam sagittis neque in lectus semper, nec elementum arcu scelerisque. Curabitur ullamcorper
-                        auctor mauris, placerat fermentum lectus vulputate sed. Phasellus vestibulum sit amet dolor eget
-                        eleifend.
-                    </p>
-                    <div>
-                        <a href="#" class="code__part-button button button-pink d-inline-block">Ask for price</a>
+            <?php foreach ($data['features'] as $featuresItem) { ?>
+                <div class="col-md-6 col-lg-5">
+                    <div class="code__part">
+                        <h2 class="code__part-title"><?php echo $featuresItem['title']; ?></h2>
+                        <p class="code__part-text">
+                            <?php echo $featuresItem['description']; ?>
+                        </p>
+                        <div>
+                            <a href="<?php echo $featuresItem['buttonUrl']; ?>"
+                               class="code__part-button button button-pink d-inline-block"><?php echo $featuresItem['buttonTitle']; ?></a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
             <div class="col-md-6 col-lg-5">
                 <div class="code__part mt-5 mt-sm-5 mt-md-0">
-                    <h2 class="code__part-title">Best<span>Code</span></h2>
+                    <h2 class="code__part-title"></h2>
                     <p class="code__part-text">
-                        Aliquam sagittis neque in lectus semper, nec elementum arcu scelerisque. Curabitur ullamcorper
-                        auctor mauris, placerat fermentum lectus vulputate sed. Phasellus vestibulum sit amet dolor eget
-                        eleifend.
+
                     </p>
-                    <div>
-                        <a href="#" class="code__part-button button button-pink d-inline-block">Ask for price</a>
-                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
@@ -149,35 +132,35 @@
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <h2 class="what-we-do__title">What we do?</h2>
+                <h2 class="what-we-do__title"><?php echo $data['whatWeDo']; ?></h2>
             </div>
         </div>
         <div class="row justify-content-between">
-            <div class="col-md-12 col-lg-5">
-                <div class="what-we-do__part d-flex">
-                    <div class="what-we-do__part-icon">
-                        <img src="src/img/what-we-do/1.png" height="95" width="105" alt="">
-                    </div>
-                    <div class="what-we-do__part-content">
-                        <h3 class="what-we-do__part-content-name">Web design</h3>
-                        <p class="what-we-do__part-content-text">
-                            Aliquam sagittis neque in lectus semper, nec elementum arcu scelerisque. Curabitur
-                            ullamcorper auctor mauris, placerat fermentum.
-                        </p>
-                    </div>
+            <?php foreach ($data['whatDoContent'] as $whatDoContentItem) { ?>
+                <div class="col-md-12 col-lg-5">
+                    <div class="what-we-do__part d-flex">
+                        <div class="what-we-do__part-icon">
+                            <img src="<?php echo $whatDoContentItem['icon']; ?>" height="95" width="105" alt="">
+                        </div>
+                        <div class="what-we-do__part-content">
+                            <h3 class="what-we-do__part-content-name"><?php echo $whatDoContentItem['title']; ?></h3>
+                            <p class="what-we-do__part-content-text">
+                                <?php echo $whatDoContentItem['description']; ?>
+                            </p>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
+            <?php } ?>
             <div class="col-md-12 col-lg-5">
                 <div class="what-we-do__part d-flex">
                     <div class="what-we-do__part-icon">
-                        <img src="src/img/what-we-do/2.png" alt="">
+
                     </div>
                     <div class="what-we-do__part-content">
-                        <h3 class="what-we-do__part-content-name">Web applications</h3>
+                        <h3 class="what-we-do__part-content-name"></h3>
                         <p class="what-we-do__part-content-text">
-                            Aliquam sagittis neque in lectus semper, nec elementum arcu scelerisque. Curabitur
-                            ullamcorper auctor mauris, placerat fermentum.
+
                         </p>
                     </div>
                 </div>
@@ -185,13 +168,12 @@
             <div class="col-md-12 col-lg-5">
                 <div class="what-we-do__part d-flex">
                     <div class="what-we-do__part-icon">
-                        <img src="src/img/what-we-do/3.png" alt="">
+
                     </div>
                     <div class="what-we-do__part-content">
-                        <h3 class="what-we-do__part-content-name">Digital painting</h3>
+                        <h3 class="what-we-do__part-content-name"></h3>
                         <p class="what-we-do__part-content-text">
-                            Aliquam sagittis neque in lectus semper, nec elementum arcu scelerisque. Curabitur
-                            ullamcorper auctor mauris, placerat fermentum.
+
                         </p>
                     </div>
                 </div>
@@ -199,13 +181,12 @@
             <div class="col-md-12 col-lg-5">
                 <div class="what-we-do__part d-flex">
                     <div class="what-we-do__part-icon">
-                        <img src="src/img/what-we-do/4.png" alt="">
+
                     </div>
                     <div class="what-we-do__part-content">
-                        <h3 class="what-we-do__part-content-name">Desktop Applications</h3>
+                        <h3 class="what-we-do__part-content-name"></h3>
                         <p class="what-we-do__part-content-text">
-                            Aliquam sagittis neque in lectus semper, nec elementum arcu scelerisque. Curabitur
-                            ullamcorper auctor mauris, placerat fermentum.
+
                         </p>
                     </div>
                 </div>
@@ -213,55 +194,57 @@
         </div>
         <div class="row">
             <div class="col what-we-do__button">
-                <a href="#" class="button button-pink d-inline-block">Ask for price</a>
+                <a href="<?php echo $data['buttonUrl']; ?>"
+                   class="button button-pink d-inline-block"><?php echo $data['buttonTitle']; ?></a>
             </div>
         </div>
     </div>
 </section>
 <section id="portfolio" class="portfolio">
     <div class="portfolio__slider">
-        <a href="" class="portfolio__slider-slide">
+        <?php foreach ($data['portfolio'] as $portfolioItem) { ?>
+            <a href="#" class="portfolio__slider-slide">
+                <div>
+                    <img class="portfolio__slider-slide-img" src="<?php echo $portfolioItem['url']; ?>"
+                         alt="<?php echo $portfolioItem['alt']; ?>">
+                </div>
+                <div class="portfolio__slider-slide-overlay">
+                    <p class="portfolio__slider-slide-overlay-name"><?php echo $portfolioItem['title']; ?></p>
+                    <p class="portfolio__slider-slide-overlay-text">
+                        <?php echo $portfolioItem['description']; ?>
+                    </p>
+                    <div>
+                        <span href="<?php echo $portfolioItem['buttonUrl']; ?>"
+                              class="portfolio__slider-slide-overlay-button button button-pink d-inline-block"><?php echo $portfolioItem['buttonTitle']; ?></span>
+                    </div>
+                </div>
+            </a>
+        <?php } ?>
+        <a href="#" class="portfolio__slider-slide">
             <div>
-                <img class="portfolio__slider-slide-img" src="src/img/portfolio/1.png" alt="portfolio">
+                <img class="portfolio__slider-slide-img">
             </div>
             <div class="portfolio__slider-slide-overlay">
-                <p class="portfolio__slider-slide-overlay-name">Drone Zone Template</p>
+                <p class="portfolio__slider-slide-overlay-name"></p>
                 <p class="portfolio__slider-slide-overlay-text">
-                    Aliquam sagittis neque in lectus semper, nec elementum arcu scelerisque. Curabitur ullamcorper
-                    auctor mauris, placerat fermentum.
+
                 </p>
                 <div>
-                    <span href="#" class="portfolio__slider-slide-overlay-button button button-pink d-inline-block">Ask for price</span>
+                    <span class="portfolio__slider-slide-overlay-button button button-pink d-inline-block"></span>
                 </div>
             </div>
         </a>
         <a href="#" class="portfolio__slider-slide">
             <div>
-                <img class="portfolio__slider-slide-img" src="src/img/portfolio/2.png" alt="portfolio">
+                <img class="portfolio__slider-slide-img">
             </div>
             <div class="portfolio__slider-slide-overlay">
-                <p class="portfolio__slider-slide-overlay-name">Neptune Template</p>
+                <p class="portfolio__slider-slide-overlay-name"></p>
                 <p class="portfolio__slider-slide-overlay-text">
-                    Aliquam sagittis neque in lectus semper, nec elementum arcu scelerisque. Curabitur ullamcorper
-                    auctor mauris, placerat fermentum.
+
                 </p>
                 <div>
-                    <span href="#" class="portfolio__slider-slide-overlay-button button button-pink d-inline-block">Ask for price</span>
-                </div>
-            </div>
-        </a>
-        <a href="#" class="portfolio__slider-slide">
-            <div>
-                <img class="portfolio__slider-slide-img" src="src/img/portfolio/3.png" alt="portfolio">
-            </div>
-            <div class="portfolio__slider-slide-overlay">
-                <p class="portfolio__slider-slide-overlay-name">FitApp Template</p>
-                <p class="portfolio__slider-slide-overlay-text">
-                    Aliquam sagittis neque in lectus semper, nec elementum arcu scelerisque. Curabitur ullamcorper
-                    auctor mauris, placerat fermentum.
-                </p>
-                <div>
-                    <span href="#" class="portfolio__slider-slide-overlay-button button button-pink d-inline-block">Ask for price</span>
+                    <span class="portfolio__slider-slide-overlay-button button button-pink d-inline-block"></span>
                 </div>
             </div>
         </a>
@@ -271,56 +254,57 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-10 text-center about-us__header">
-                <h2 class="about-us__header-title">About us!</h2>
+                <h2 class="about-us__header-title"><?php echo $data['aboutUs']['title']; ?></h2>
                 <p class="about-us__header-text">
-                    Aliquam sagittis neque in lectus semper, nec elementum arcu scelerisque. Curabitur ullamcorper
-                    auctor mauris, placerat fermentum.
+                    <?php echo $data['aboutUs']['description']; ?>
                 </p>
             </div>
         </div>
         <div class="about-us__team text-center">
             <div class="row">
+                <?php foreach ($data['team'] as $teamItem) { ?>
                 <div class="col-lg-3 col-md-6">
                     <div class="about-us__team-person">
                         <div class="about-us__team-person-avatar">
-                            <img class="rounded-circle" src="src/img/about-us/1.png">
+                            <img class="rounded-circle" src="<?php echo $teamItem['url']; ?>">
                         </div>
-                        <p class="about-us__team-person-name">John Doe</p>
+                        <p class="about-us__team-person-name"><?php echo $teamItem['title']; ?></p>
                         <p class="about-us__team-person-text">
-                            Curabitur ullamcorper auctor mauris, placerat fermentum.
+                            <?php echo $teamItem['description']; ?>
+                        </p>
+                    </div>
+                </div>
+                <?php } ?>
+                <div class="col-lg-3 col-md-6">
+                    <div class="about-us__team-person">
+                        <div class="about-us__team-person-avatar">
+                            <img class="rounded-circle">
+                        </div>
+                        <p class="about-us__team-person-name"></p>
+                        <p class="about-us__team-person-text">
+
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="about-us__team-person">
                         <div class="about-us__team-person-avatar">
-                            <img class="rounded-circle" src="src/img/about-us/2.png">
+                            <img class="rounded-circle">
                         </div>
-                        <p class="about-us__team-person-name">John Doe</p>
+                        <p class="about-us__team-person-name"></p>
                         <p class="about-us__team-person-text">
-                            Curabitur ullamcorper auctor mauris, placerat fermentum.
+
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="about-us__team-person">
                         <div class="about-us__team-person-avatar">
-                            <img class="rounded-circle" src="src/img/about-us/3.png">
+                            <img class="rounded-circle">
                         </div>
-                        <p class="about-us__team-person-name">John Doe</p>
+                        <p class="about-us__team-person-name"></p>
                         <p class="about-us__team-person-text">
-                            Curabitur ullamcorper auctor mauris, placerat fermentum.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="about-us__team-person">
-                        <div class="about-us__team-person-avatar">
-                            <img class="rounded-circle" src="src/img/about-us/4.png">
-                        </div>
-                        <p class="about-us__team-person-name">John Doe</p>
-                        <p class="about-us__team-person-text">
-                            Curabitur ullamcorper auctor mauris, placerat fermentum.
+
                         </p>
                     </div>
                 </div>
@@ -329,14 +313,15 @@
         </div>
         <div class="row justify-content-center">
             <div class="">
-                <a href="#" class="about-us__button button button-pink d-inline-block">Ask for price</a>
+                <a href="<?php echo $data['buttonUrl']; ?>" class="about-us__button button button-pink d-inline-block"><?php echo $data['buttonTitle']; ?></a>
             </div>
         </div>
     </div>
 </section>
 <section id="contact" class="contact">
     <div class="contact__map" id="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d157980.5466730287!2d0.3774905759964454!3d42.6296948373597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1452348544609" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen>
+        <iframe src="<?php echo $data['mapUrl']; ?>"
+                width="100%" height="600" frameborder="0" style="border:0" allowfullscreen>
         </iframe>
     </div>
 </section>
@@ -345,10 +330,10 @@
         <div class="row justify-content-center">
             <div class="col-12 text-center footer__content">
                 <p class="footer__content-text">
-                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                    <?php echo $data['footer']['description']; ?>
                 </p>
-                <p class="footer__content-text">Try awsome tool for desgners <a class="footer__content-link"
-                                                                                href="#">symu.co</a></p>
+                <p class="footer__content-text"><?php echo $data['footer']['title']; ?> <a class="footer__content-link"
+                                                                                href="<?php echo $data['footer']['link']; ?>"><?php echo $data['footer']['linkText']; ?></a></p>
             </div>
         </div>
     </div>
