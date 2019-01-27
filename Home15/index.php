@@ -1,5 +1,4 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
 function insertion_Sort($my_array)
 {
     for ($i = 0; $i < count($my_array); $i++) {
